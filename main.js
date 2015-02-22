@@ -20,7 +20,7 @@ window.onload = function() {
 	renderer.setSize( containerWidth, containerHeight );
 	container.appendChild( renderer.domElement );
 
-	renderer.setClearColorHex( 0xeeeedd, 1.0 );
+	renderer.setClearColorHex( 0x000000, 1.0 );
 
 	scene = new THREE.Scene();
 
@@ -67,7 +67,7 @@ window.onload = function() {
 
 	function onMouseMove( e ) {
 		var n1 = new Date().getTime();
-		for(var repeat = 0 ; repeat < 10000 ; repeat ++) {
+		for(var repeat = 0 ; repeat < 100 ; repeat ++) {
 			mouseVector.x = 2 * (e.clientX / containerWidth) - 1;
 			mouseVector.y = 1 - 2 * ( e.clientY / containerHeight );
 
