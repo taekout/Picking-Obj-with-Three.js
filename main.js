@@ -34,7 +34,7 @@ window.onload = function() {
 	cubes = new THREE.Object3D();
 	scene.add( cubes );
 
-	for(var i = 0; i < 100 ; i++ ) {
+	for(var i = 0; i < 10000 ; i++ ) {
 		var grayness = Math.random() * 0.5 + 0.25,
 			mat = new THREE.MeshBasicMaterial(),
 			cube = new THREE.Mesh( geom, mat );
