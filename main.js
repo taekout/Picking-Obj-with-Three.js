@@ -67,28 +67,26 @@ window.onload = function() {
 
 	function onMouseMove( e ) {
 		var n1 = new Date().getTime();
-		for(var repeat = 0 ; repeat < 100 ; repeat ++) {
-			mouseVector.x = 2 * (e.clientX / containerWidth) - 1;
-			mouseVector.y = 1 - 2 * ( e.clientY / containerHeight );
+		mouseVector.x = 2 * (e.clientX / containerWidth) - 1;
+		mouseVector.y = 1 - 2 * ( e.clientY / containerHeight );
 
-			var raycaster = projector.pickingRay( mouseVector.clone(), camera ),
-				intersects = raycaster.intersectObjects( cubes.children );
+		var raycaster = projector.pickingRay( mouseVector.clone(), camera ),
+			intersects = raycaster.intersectObjects( cubes.children );
 
-			cubes.children.forEach(function( cube ) {
-				cube.material.color.setRGB( cube.grayness, cube.grayness, cube.grayness );
-			});
+		cubes.children.forEach(function( cube ) {
+			cube.material.color.setRGB( cube.grayness, cube.grayness, cube.grayness );
+		});
 
-				
-			for( var i = 0; i < intersects.length; i++ ) {
-				var intersection = intersects[ i ],
-					obj = intersection.object;
+			
+		for( var i = 0; i < intersects.length; i++ ) {
+			var intersection = intersects[ i ],
+				obj = intersection.object;
 
-				obj.material.color.setRGB( 1.0 - i / intersects.length, 0, 0 );
-			}
+			obj.material.color.setRGB( 1.0 - i / intersects.length, 0, 0 );
 		}
 		
 		var n2 = new Date().getTime();
-		document.getElementById("headline").innerHTML = n2 - n1;
+		document.getElementById("elapsedTime").innerHTML = "Time : " + (n2 - n1).toString();
 	}
 
 	function onWindowResize( e ) {
