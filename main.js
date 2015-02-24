@@ -61,6 +61,12 @@ window.onload = function() {
 	controls = new THREE.TrackballControls( camera );
 	controls.zoomSpeed = 0.1;
 
+	// init cube colors
+	cubes.children.forEach(function( cube ) {
+		cube.material.color.setRGB( cube.grayness, cube.grayness, cube.grayness );
+	});
+
+
 	// And go!
 	animate();
 
@@ -73,9 +79,7 @@ window.onload = function() {
 		var raycaster = projector.pickingRay( mouseVector.clone(), camera ),
 			intersects = raycaster.intersectObjects( cubes.children );
 
-		cubes.children.forEach(function( cube ) {
-			cube.material.color.setRGB( cube.grayness, cube.grayness, cube.grayness );
-		});
+		
 
 			
 		for( var i = 0; i < intersects.length; i++ ) {
