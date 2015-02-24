@@ -90,7 +90,7 @@ window.onload = function() {
 		}
 		
 		var n2 = new Date().getTime();
-		document.getElementById("elapsedTime").innerHTML = "Time : " + (n2 - n1).toString();
+		document.getElementById("elapsedTime").innerHTML = "Elapsed Time for picking an object.(ms) :" + (n2 - n1).toString();
 	}
 
 	function onWindowResize( e ) {
