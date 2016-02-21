@@ -1,5 +1,12 @@
 window.onload = function() {
 	
+	var nObjects = prompt("How many cubes would you like to try picking on?");
+
+    if (nObjects == null || nObjects > 50000 || nObjects < 1 || isNumber(nObjects) == false) {
+    	alert("Invalid input or the number is too high. (It should be less than 50000.) It is set to 500 for now.");
+    	nObjects = 500;
+    }
+	
 	var container = document.getElementById( 'container' ),
 		containerWidth, containerHeight,
 		renderer,
@@ -34,7 +41,7 @@ window.onload = function() {
 	cubes = new THREE.Object3D();
 	scene.add( cubes );
 
-	for(var i = 0; i < 20000 ; i++ ) {
+	for(var i = 0; i < nObjects ; i++ ) {
 		var grayness = Math.random() * 0.5 + 0.25,
 			mat = new THREE.MeshBasicMaterial(),
 			cube = new THREE.Mesh( geom, mat );
@@ -141,5 +148,6 @@ window.onload = function() {
 		return axis;
 
 	}
-
+	
+	function isNumber(obj) { return !isNaN(parseFloat(obj)) }
 }
